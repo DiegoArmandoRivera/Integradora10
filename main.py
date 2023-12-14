@@ -359,7 +359,12 @@ def ticEntrada():
             db.session.add(ticket)
             db.session.commit()
 
-            qr_data = f"localhost:8000/codigo/{ticket.id}"
+
+            host = request.url
+            partes_url = host.split("/") 
+            url = "/".join(partes_url[:3])
+
+            qr_data = f"{url}/codigo/{ticket.idBoleto}"
             qr = qrcode.make(qr_data)
             qr_io = BytesIO()
             qr.save(qr_io)
