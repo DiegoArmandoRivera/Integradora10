@@ -364,7 +364,7 @@ def ticEntrada():
             partes_url = host.split("/") 
             url = "/".join(partes_url[:3])
 
-            qr_data = f"{url}/codigo/{ticket.idBoleto}"
+            qr_data = f"{url}/codigo/{ticket.id}"
             qr = qrcode.make(qr_data)
             qr_io = BytesIO()
             qr.save(qr_io)
